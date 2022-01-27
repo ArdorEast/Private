@@ -1,37 +1,8 @@
 function assessment() {
-console.log(
-'1. Вёрстка соответствует макету +46:\n\
-    header +6,\n\
-    hero +6,\n\
-    skills +6,\n\
-    portfolio +6,\n\
-    video +5,\n\
-    price +6,\n\
-    contacts +5,\n\
-    footer +6.\n\
-2. Нет полосы прокрутки +15:\n\
-    от 1440рх до 768рх +5,\n\
-    от 768рх до 480рх +5,\n\
-    от 480рх до 320рх +5.\n\
-3. Адаптивное меню +22:\n\
-    при 768рх навигация скрывается, появляется бургер + 2,\n\
-    при нажатии на бургер справа плавно появляется меню,\n\
-    бургер-иконка меняется на крестик + 4,\n\
-    высота меню = высоте экрана.При ширине экрана 768 - 620рх\n\
-    вёрстка меню соответствует макету, когда экран становится\n\
-    уже, меню занимает всю ширину экрана + 4,\n\
-    при нажатии на крестик меню плавно скрывается, уезжая вправо,\n\
-    крестик превращается в бургер + 4,\n\
-    бургер, который при клике превращается в крестик,\n\
-    создан без использования изображений + 2,\n\
-    ссылки в меню работают, прокрутка по якорям плавная + 2,\n\
-    при клике по ссылке(в меню) меню плавно скрывается,\n\
-    крестик превращается в бургер-иконку + 4.\n\
-    Баллы для сглаживания проверки +10.\n\
-Итого отметка = 83 балла.');
+console.log('отметка');
 }
 assessment();
-
+import i18Obj from './translate.js';
 // Бургер-меню
 // Взяли в константу иконку бургера
 const burger = document.querySelector('.header-burger');
@@ -66,7 +37,7 @@ function closeMenu() {
     openMenu.classList.remove('open');
     document.body.classList.remove('lock');
 };
-// openMenu.addEventListener('click', closeMenu);
+// openMenu.addEventListener('click', closeMenu);  делегирование
 
 
 
@@ -75,5 +46,37 @@ function closeMenu() {
         navLinks[i].addEventListener('click', closeMenu);
     }    
 // }
+// Для функции смены изображений старт
+const portfolioButtons = document.querySelector('.portfolio-buttons');
+const portfolioImages = document.querySelectorAll('.portfolio-img');
+portfolioButtons.addEventListener('click', function changeImage(event) {
+    let season = event.target.dataset.season;
+    if (event.target.classList.contains('portfolio-btn')) {
+    portfolioImages.forEach((img, index) => img.src = `assets/img/${season}/${index + 1}.jpg`);
+  }
+});
+// Для функции смены изображений окончание
+// Для функции кеширования старт
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
+seasons.forEach(elem => {
+    function preloadSummerImages() {
+  for(let i = 1; i <= 6; i++) {
+    const image = new Image();
+    image.src = `./assets/img/${elem}/${i}.jpg`;
+  }
+}
+preloadSummerImages();
+})
+// Для функции кеширования окончание
+
+
+
+// function changeImage(event) {
+//     if (event.target.classList.contains('portfolio-buttons')) {
+//       portfolioImages.forEach((img, index) => img.src = `./assets/img/winter/${index + 1}.jpg`);
+//   }
+// }
+
+
 
 
