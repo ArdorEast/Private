@@ -113,8 +113,8 @@ line-height: 50px;
 }
 .switch-en {
 padding: 0 1px;
-color: #BDAE82;
 cursor: pointer;
+transition: all 0.5s;
 }
 .sw {
 padding: 0 2px;
@@ -122,6 +122,7 @@ padding: 0 2px;
 .switch-ru {
 padding: 0 1px;
 cursor: pointer;
+transition: all 0.5s;
 }
 .switch-en:hover, .switch-ru:hover {
 color: #BDAE82;
@@ -335,7 +336,7 @@ color: #BDAE82;
 background-color: #000000;
 }
 .portfolio-btn:hover, .portfolio-btn:focus {
-color: #fff;
+color: #000;
 border: 3px solid #BDAE82;
 background: #BDAE82;
 }
@@ -674,7 +675,7 @@ body.lock {
     display: flex;
     justify-content: flex-end;
     overflow: auto;
-    transition: left 0,7s ease-out;
+    transition: left 0.7s ease-out;
 }
 .header__nav.open {
     left: 0;
