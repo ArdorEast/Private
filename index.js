@@ -69,10 +69,75 @@ seasons.forEach(elem => {
 })
 // Для функции кеширования окончание
 // Для функции смены языка старт
+const langAttr = document.querySelectorAll('[data-i18]');
+const switchLang = document.querySelector('.switch');
+const langRu = document.querySelector('.switch-ru');
+const langEn = document.querySelector('.switch-en');
+function translateRu() {
+  langEn.classList.remove('active');
+  langRu.classList.add('active');
+  langAttr.forEach((el) => {
+    el.textContent = i18Obj['ru'][el.dataset.i18];
+    if (el.placeholder) {
+    el.placeholder = i18Obj['ru'][el.dataset.i18];
+    el.textContent = ''
+    };
+  });
+};
+langRu.addEventListener('click', translateRu);
 
+function translateEn() {
+  langRu.classList.remove('active');
+  langEn.classList.add('active');
+  langAttr.forEach((el) => {
+    el.textContent = i18Obj['en'][el.dataset.i18];
+    if (el.placeholder) {
+    el.placeholder = i18Obj['en'][el.dataset.i18];
+    el.textContent = ''
+    };
+  });
+};
+langEn.addEventListener('click', translateEn);
 
+// 1 вариант:   switchLang.addEventListener('click', function (lang) {
+//   langAttr.forEach((el) => {
+//     el.textContent = i18Obj[lang][el.dataset.i18];
+//   });
+// });
+
+// 2 вариант:   const getTranslate = function (lang) {
+//   langAttr.forEach((el) => {
+//     el.textContent = i18Obj[lang][el.dataset.i18];
+//   });
+// };
+// langRu.addEventListener('click', getTranslate('ru'));
+// langEn.addEventListener('click', getTranslate('en'));
+
+//вывот значения дата-атрибуда    const lan = document.querySelector('[data-i18]');
+// console.log(lan.dataset.i18);
 
 // Для функции смены языка окончание
+// Для смены темы отображения старт
+const lightTheme = [...document.querySelectorAll('body, .theme, .section-title, .skills-item, .portfolio-btn, .price-item-title, .price-item-text, .header__list, .header__list-link')];
+const switchTheme = document.querySelector('.theme');                        
+switchTheme.addEventListener('click', function themeFunc() {
+lightTheme.forEach((el) => {
+  el.classList.toggle('light-theme');
+});
+});
+// Для смены темы отображения окончание
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // function changeImage(event) {
