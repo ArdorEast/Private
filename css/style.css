@@ -933,7 +933,6 @@ display: flex;
 flex-direction: column;
 align-items: center;
 }
-
 .portfolio-image {
     flex: 0 1 90%;}
 .portfolio-image img {
@@ -944,6 +943,19 @@ align-items: center;
     flex: 0 1 90%;
     max-width: 550px;}
 }
-@media (max-width: 350px) {
-
+@media (max-width: 410px) {
+.header-container {
+    padding: 20px;
+}
+.switch {
+    margin-left: 5px;
+}
+.header-burger {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.theme {
+    margin-left: 5px;
+    margin-right: 5px;
+}
 }
