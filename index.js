@@ -93,7 +93,7 @@ function translateEn() {
     el.textContent = i18Obj['en'][el.dataset.i18];
     if (el.placeholder) {
     el.placeholder = i18Obj['en'][el.dataset.i18];
-    el.textContent = ''
+      el.textContent = ''
     };
   });
 };
