@@ -3,6 +3,30 @@ function assessment() {
 }
 assessment();
 import i18Obj from './translate.js';
+// Для сохранения настроек пользователя (язык и тема) старт
+// let lang = 'en';
+// let theme = 'dark';
+// function setLocalStorage() {
+//   if (!(langRu.classList.contains('active')))localStorage.setItem('lang', lang);
+//   localStorage.setItem('theme', theme);
+// }
+// window.addEventListener('beforeunload', setLocalStorage);
+// function getLocalStorage() {
+//   if(localStorage.getItem('lang')) {
+//     const lang = localStorage.getItem('lang');
+//     translateEn();
+//   }
+//   else if (localStorage.getItem('theme')) {
+//     const theme = localStorage.getItem('theme');
+//     themeFunc();
+//   }
+//   else translateRu();
+// }
+// window.addEventListener('load', getLocalStorage);
+// Для сохранения настроек пользователя (язык и тема) окончание
+
+
+
 // Бургер-меню
 // Взяли в константу иконку бургера
 const burger = document.querySelector('.header-burger');
@@ -68,6 +92,7 @@ seasons.forEach(elem => {
   preloadSummerImages();
 })
 // Для функции кеширования окончание
+
 // Для функции смены языка старт
 const langAttr = document.querySelectorAll('[data-i18]');
 const switchLang = document.querySelector('.switch');
@@ -120,22 +145,29 @@ langEn.addEventListener('click', translateEn);
 // Для смены темы отображения старт
 const lightTheme = [...document.querySelectorAll('body, .theme, .section-title, .skills-item, .portfolio-btn, .price-item-title, .price-item-text, .header__list, .header__list-link')];
 const switchTheme = document.querySelector('.theme');                        
-switchTheme.addEventListener('click', function themeFunc() {
+switchTheme.addEventListener('click', function themeFunc(theme) {
 lightTheme.forEach((el) => {
   el.classList.toggle('light-theme');
 });
 });
 // Для смены темы отображения окончание
 
+// Анимация кнопок старт
+var animateButton = function(e) {
+  e.preventDefault;
+  //reset animation
+  e.target.classList.remove('animate');
+  e.target.classList.add('animate');
+  setTimeout(function(){
+    e.target.classList.remove('animate');
+  }, 700);
+};
 
-
-
-
-
-
-
-
-
+var bubblyButtons = document.querySelectorAll('.bubbly');
+for (var i = 0; i < bubblyButtons.length; i++) {
+  bubblyButtons[i].addEventListener('click', animateButton, false);
+}
+// Анимация кнопок окончание
 
 
 
