@@ -1,3 +1,4 @@
+@import url('https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css'); /* это для подключения иконок с сайта */
 html, body, h1, h2, h3, p, a, ul, li, nav, textarea {
 margin: 0;
 padding: 0;}
@@ -137,9 +138,7 @@ color: #BDAE82;
 .switch-en:active, .switch-ru:active {
 opacity: 0.5;
 }
-.hidden {
-display: none;
-}
+
 .theme {
 width: 45px;
 height: 45px;
@@ -399,20 +398,115 @@ padding: 12.5px;
 .container-video {
 padding: 100px 20px 0;
 }
+
 .video-item {
 position: relative;
 display: flex;
 justify-content: center;
 align-items: center;
+overflow: hidden;
 }
-.video-item img {
-max-width: 100%; 
-height: auto;
+.video {
+width: 100%; 
+height: 46vw;
+object-fit: cover;
+}
+.video-controls-item {
+display: flex;
+align-items: center;
+justify-content: space-around;
+background-color: #000;
+position: absolute;
+left: 0;
+bottom: -4rem;
+z-index: 2;
+width: 100%;
+height: 4rem;
+padding-left: 0.5rem;
+padding-right: 0.5rem;
+}
+.video-controls-item.active {
+bottom: 0;
+}
+.fa-solid {
+width: 40px;
+color: #fff;
+font-size: 36px;
+transition: all 0.5s;
+text-align: center;
+}
+.fa-solid:hover, .fa-solid:focus {
+color: #BDAE82;
+}
+.video-controls-play {
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+margin-right: 15px;
+}
+
+.rate {
+--range: calc(var(--max) - var(--min));
+--ratio: calc((var(--value) - var(--min)) / var(--range));
+--sx: calc(0.5 * 2em + var(--ratio) * (100% - 2em));
+background: linear-gradient(#BDAE82,#BDAE82) 0/var(--sx) 100% no-repeat, #EFEFEF;
+border-color: #c1c1c1;
+border: solid 2px #BDAE82;
+border-radius: 8px;
+height: 11px;
+outline: none;
+-webkit-appearance: none;
+}
+.rate:hover, .rate:active {
+background: linear-gradient(#BDAE82,#BDAE82) 0/var(--sx) 100% no-repeat, #e5e5e5;
+}
+.rate:focus {
+outline: none;
+}
+.rate::-webkit-slider-thumb {
+width: 25px;
+height: 25px;
+border-radius: 50%;
+-webkit-appearance: none;
+cursor: pointer;
+background: #BDAE82;
+}
+.video-controls-play-rate {
+width: 65%;
+}
+.video-controls-volume {
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+margin-left: 15px;
+margin-right: 15px;
+}
+.video-controls-volume .fa-solid {
+font-size: 32px;
+}
+.video-controls-volume-rate {
+width: 17%;
+}
+.video-controls-fullscreen {
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+margin-left: 15px;
+}
+.video-controls-fullscreen .fa-solid {
+font-size: 32px;
 }
 .video-play {
 background-color: transparent;
 position: absolute;
 border: none;
+z-index: 3;
+}
+.video-play.hidden {
+z-index: -1;
 }
 .video-play-btn-white {
 width: 130px;
@@ -912,8 +1006,26 @@ body.lock {
 .container-video .section-title-wrapper {
     margin-bottom: 69px;
 }
-.video-item img {
-    height: 418px;
+.video-controls-item{
+    height: 2.8rem;
+    bottom: -2.8rem;
+}
+.fa-solid {
+width: 25px;
+font-size: 24px;
+}
+.rate {
+    height: 8px;
+}
+.rate::-webkit-slider-thumb {
+width: 20px;
+height: 20px;
+}
+.video-controls-volume .fa-solid {
+font-size: 24px;
+}
+.video-controls-fullscreen .fa-solid {
+font-size: 24px;
 }
 .video-play-btn-white {
     width: 65px;
@@ -1028,5 +1140,40 @@ align-items: center;
 .theme {
     margin-left: 5px;
     margin-right: 5px;
+}
+.video-controls-item{
+    height: 2rem;
+    bottom: -2rem;
+}
+.fa-solid {
+width: 20px;
+font-size: 18px;
+}
+.video-controls-play {
+    margin-right: 5px;
+}
+.rate {
+    height: 7px;
+}
+.rate::-webkit-slider-thumb {
+width: 18px;
+height: 18px;
+}
+.video-controls-volume {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.video-controls-volume .fa-solid {
+font-size: 18px;
+}
+.video-controls-fullscreen .fa-solid {
+font-size: 18px;
+}
+.video-controls-fullscreen {
+    margin-left: 5px;
+}
+.video-play-btn-white {
+    width: 45px;
+    height: 45px;
 }
 }
