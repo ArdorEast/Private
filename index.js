@@ -70,10 +70,17 @@ for (let i = 0; i < navLinks.length; i++) {
 // Для функции смены изображений старт
 const portfolioButtons = document.querySelector('.portfolio-buttons');
 const portfolioImages = document.querySelectorAll('.portfolio-img');
+const portfolioBtns = [...document.querySelectorAll('[data-season]')];
+
+// autumn.classList.add('active');
+// console.log();
+
 portfolioButtons.addEventListener('click', function changeImage(event) {
   let season = event.target.dataset.season;
   if (event.target.classList.contains('portfolio-btn')) {
     portfolioImages.forEach((img, index) => img.src = `assets/img/${season}/${index + 1}.jpg`);
+    portfolioBtns.forEach(el => el.classList.remove('active'));
+    event.target.classList.add('active');    
   }
 });
 // Для функции смены изображений окончание
@@ -96,7 +103,7 @@ const switchLang = document.querySelector('.switch');
 const langRu = document.querySelector('.switch-ru');
 const langEn = document.querySelector('.switch-en');
 
-langEn.classList.add('active');
+
 function translate(_lang) {
   lang = _lang;
   if (_lang === 'ru') {
@@ -197,10 +204,6 @@ for (var i = 0; i < bubblyButtons.length; i++) {
 //   }
 // }
 //  video-controls-play-button класс для кнопки плэй в контролся
-
-
-
-
 
 
 // Видеоплеер старт
@@ -323,13 +326,6 @@ controlsPlayRate.addEventListener('input', () => {
   video.currentTime = (controlsPlayRate.value * video.duration) / 100;
 })
 // Ползунок для видео окончание
-
-
-
-
-
-
-
 
 // Полноэкранный режим старт
 controlsFullscreenBtn.addEventListener('click', () => {
