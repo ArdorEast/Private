@@ -24,8 +24,6 @@ function getLocalStorage() {
 window.addEventListener('load', getLocalStorage);
 // Для сохранения настроек пользователя (язык и тема) окончание
 
-
-
 // Бургер-меню
 // Взяли в константу иконку бургера
 const burger = document.querySelector('.header-burger');
@@ -98,6 +96,7 @@ const switchLang = document.querySelector('.switch');
 const langRu = document.querySelector('.switch-ru');
 const langEn = document.querySelector('.switch-en');
 
+langEn.classList.add('active');
 function translate(_lang) {
   lang = _lang;
   if (_lang === 'ru') {

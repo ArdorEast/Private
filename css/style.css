@@ -1148,8 +1148,6 @@ align-items: center;
     flex: 0 1 90%;}
 .portfolio-image img {
     width: 100%;}
-.video-item img { 
-    height: auto;}
 .price-item {
     flex: 0 1 90%;
     max-width: 550px;}
