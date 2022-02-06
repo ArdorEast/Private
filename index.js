@@ -215,6 +215,8 @@ const controlsVolumeRate = document.querySelector('.video-controls-volume-rate')
 const rates = document.querySelectorAll('.rate');
 const controlsVolumeBtn = document.querySelector('.volume-controls-button');
 const controlsFullscreenBtn = document.querySelector('.fullscreen-controls-button');
+const currentTimeVideo = document.querySelector('.current-time');
+const durationVideo = document.querySelector('.duration');
 let volume = controlsVolumeRate.value;
 let isVolumeMuted = false;
 let isVideoFullscreen = false;
@@ -314,11 +316,21 @@ video.addEventListener('ended', () => {
 video.addEventListener('timeupdate', () => {
   controlsPlayRate.value = ((video.currentTime * 100) / video.duration).toFixed(2);
   controlsPlayRate.style.setProperty('--value', controlsPlayRate.value);
+  let curTime = Math.floor(video.currentTime);
+  currentTimeVideo.textContent = curTime < 10 ? `0:0${curTime}` : `0:${curTime}`;  /*для вывода текущего времени видео*/
+// вместо 2ух строчек вверху можно записать currentTimeVideo.textContent = (Video.currentTime).toFixed(0).padStart(2, '0');
 })
 controlsPlayRate.addEventListener('input', () => {
   video.currentTime = (controlsPlayRate.value * video.duration) / 100;
 })
 // Ползунок для видео окончание
+
+
+
+
+
+
+
 
 // Полноэкранный режим старт
 controlsFullscreenBtn.addEventListener('click', () => {
