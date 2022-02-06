@@ -375,6 +375,11 @@ background: #BDAE82;
 .portfolio-btn:active {
 opacity: 0.5;
 }
+.portfolio-btn.active {
+border: 3px solid #BDAE82;
+background: #BDAE82;
+color: #000;
+}
 .portfolio-btn.light-theme {
 color: #000;
 }
