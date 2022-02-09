@@ -305,6 +305,9 @@ videoControlsPlayBtn.addEventListener('click', playVideo);
 playBtn.addEventListener('click', playVideo);
 
 video.addEventListener('ended', () => {
+  if (isVideoFullscreen) {
+    toggleFullscreen();
+  }
   videoControlsPlayBtn.classList.toggle('fa-play');
   videoControlsPlayBtn.classList.toggle('fa-pause');
   playBtn.classList.toggle('hidden');
@@ -328,7 +331,7 @@ controlsPlayRate.addEventListener('input', () => {
 // Ползунок для видео окончание
 
 // Полноэкранный режим старт
-controlsFullscreenBtn.addEventListener('click', () => {
+function toggleFullscreen() {
   isVideoFullscreen = !isVideoFullscreen;
   if (isVideoFullscreen) {
     controlsFullscreenBtn.classList.toggle('fa-expand');
@@ -339,7 +342,8 @@ controlsFullscreenBtn.addEventListener('click', () => {
     controlsFullscreenBtn.classList.toggle('fa-compress');
     document.exitFullscreen();
   }
-});
+}
+controlsFullscreenBtn.addEventListener('click', toggleFullscreen);
 // Полноэкранный режим окончание
 
 // Видеоплеер окончание
